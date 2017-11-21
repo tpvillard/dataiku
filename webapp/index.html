@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <style>
+    .ui-autocomplete {
+       max-height: 100px;
+       overflow-y: auto;
+       /* prevent horizontal scrollbar */
+       overflow-x: hidden;
+       /* add padding to account for vertical scrollbar */
+       padding-right: 20px;
+    }
+    </style>
+    <meta charset="utf-8"/>
+    <title>Census Db</title>
+</head>
+<body>
+
+<label for="column-name">Column Name:</label>
+<input type="text" id="column-name" value="education"/>
+<button id="fetch">Fetch</button>
+
+<p id="message_id"></p>
+<div id="properties">
+    Ready ...
+</div>
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+    $(document).ready(function () {
+
+        $.ajax('http://localhost:8082/census-api/columns', {
+            dataType: "json",
+            success: function (columns) {
+                $( "#column-name" ).autocomplete({
+                   source: columns.column
+                });
+            }
+        });
+
+        function render(result, columnName) {
+
+           $('#message_id').html(result.skippedValuesCount + ' skipped values, ' + result.skippedRowsCount + ' skipped rows.');
+
+           var html = '<table>'
+           html += '<tr><th>' + columnName + '</th>' + '<th>occurence</th>' + '<th>age avg</th></tr>';
+
+           $.each(result.properties, function(i, property) {
+              html += '<tr><td>' + property.name + '</td>' + '<td>' + property.count + '</td>' + '<td>' + property.age + '</td></tr>';
+           });
+           html += '</table>';
+
+           $("#properties").html(html)
+        }
+
+        $('#fetch').click(function () {
+            var columnName = $.trim($('#column-name').val());
+            $.ajax('http://localhost:8082/census-api/columns/' + columnName +'', {
+                dataType: "json",
+                beforeSend: function() {
+                    $('#properties').html('Loading ...');
+                },
+                success: function (result) {
+                    render(result, columnName);
+                }
+            });
+        });
+    });
+
+
+</script>
+</body>
+</html>
