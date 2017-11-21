@@ -16,7 +16,7 @@ import java.net.URI;
 import java.util.concurrent.CountDownLatch;
 
 /**
- * Main backend.
+ * Main entry point.
  */
 public class Main {
 

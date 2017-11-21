@@ -28,10 +28,10 @@ public class ColumnsResource {
     private Configuration config;
 
     /**
-     * Returns the list of properties.
+     * Returns the result.
      *
      * @param columnId the column id
-     * @return the list of properties
+     * @return the result
      */
     @GET
     @Path("{id}")
