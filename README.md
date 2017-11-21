@@ -17,7 +17,9 @@ For simplicity, all columns (except the "age" column) are considered as string c
 The application uses java8 and jetty on the backend side, jquery and a bit of jquery-ui on the front end.
 
 To build the application do mvn clean install (maven 3.3.9 is in use)
+
 To run the application do mvn exec:java
 
 The web app is served on port 8082.
+
 Edit src/main/java/resources/config.yaml to modify the default settings.
