@@ -2,7 +2,7 @@
 #
 #####################################################
 
-dbUrl: jdbc:sqlite:C:/sqlite/us-census.db
+dbUrl: jdbc:sqlite:src/main/resources/us-census.db
 dbName: census_learn_sql
 port: 8082
 docRoot: webapp

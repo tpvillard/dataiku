@@ -1,6 +1,8 @@
 package com.biffbangpow.census.db;
 
 
+import com.biffbangpow.census.config.ConfigAccess;
+import com.biffbangpow.census.config.Configuration;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -12,7 +14,9 @@ public class ConnectionProviderTest {
     @Test
     public void test_connection_is_available() throws SQLException {
 
-        ConnectionProvider provider = new ConnectionProvider("jdbc:sqlite:C:/sqlite/us-census.db");
+        Configuration config = (new ConfigAccess()).getConf("src/main/resources/config.yaml");
+
+        ConnectionProvider provider = new ConnectionProvider(config.getDbUrl());
         Connection cnx = provider.get();
         Assert.assertFalse(cnx.isClosed());
         cnx.close();
