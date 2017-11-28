@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/tpvillard/dataiku.svg?branch=master)](https://travis-ci.org/tpvillard/dataiku)
 # dataiku coding exercice
 
 The application should allow the user to select a column from the database. It should then display,
