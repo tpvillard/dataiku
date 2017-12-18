@@ -1,6 +1,13 @@
 [![Build Status](https://travis-ci.org/tpvillard/dataiku.svg?branch=master)](https://travis-ci.org/tpvillard/dataiku) [![Coverage Status](https://coveralls.io/repos/github/tpvillard/dataiku/badge.svg)](https://coveralls.io/github/tpvillard/dataiku) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/3358b39aeee4445a95d0f69759af1bd4)](https://www.codacy.com/app/tpvillard/dataiku?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=tpvillard/dataiku&amp;utm_campaign=Badge_Grade)
 # dataiku coding exercice
 
+us-census.db in src/main/resources is an extract of a dataset on the US census.
+
+This file is a SQLite database. It contains a single table "census_learn_sql", containing demographical
+record data.
+ 
+Your goal is to create a small web application to visualize data from this database.
+
 The application should allow the user to select a column from the database. It should then display,
 for each value of the variable, the count of rows with this value and the average of the "age" value.
 The values should be sorted by decreasing count.
