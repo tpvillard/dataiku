@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/tpvillard/dataiku.svg?branch=master)](https://travis-ci.org/tpvillard/dataiku) [![Coverage Status](https://coveralls.io/repos/github/tpvillard/dataiku/badge.svg)](https://coveralls.io/github/tpvillard/dataiku) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/3358b39aeee4445a95d0f69759af1bd4)](https://www.codacy.com/app/tpvillard/dataiku?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=tpvillard/dataiku&amp;utm_campaign=Badge_Grade)
+
 # dataiku coding exercice
 
 us-census.db in src/main/resources is an extract of a dataset on the US census.
