@@ -50,7 +50,7 @@ public class CensusDAOTest {
     }
 
     @Test
-    public void test_get_result_for_weight() throws SQLException {
+    public void get_result_for_weight() throws SQLException {
 
         Result res = dao.getResultForColumn("weight");
         Assert.assertEquals(res.getProperties().size(), 100);
